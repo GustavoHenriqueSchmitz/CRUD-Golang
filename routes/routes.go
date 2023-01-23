@@ -10,5 +10,5 @@ func Routes(app *fiber.App) {
 
 	router := app.Group("/api")
 
-	router.Get("/", controller.Create)
+	router.Post("/create", controller.Create)
 }
