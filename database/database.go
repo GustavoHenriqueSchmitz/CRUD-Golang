@@ -9,7 +9,8 @@ import (
 )
 
 var (
-	DB *gorm.DB
+	DB  *gorm.DB
+	err error
 )
 
 const (
@@ -24,7 +25,7 @@ const (
 func Database() {
 
 	connection := "host=" + host + " user=" + user + " password=" + password + " dbname=" + databaseName + " port=" + port + " sslmode=" + sslmode
-	DB, err := gorm.Open(postgres.Open(connection))
+	DB, err = gorm.Open(postgres.Open(connection))
 
 	go func() {
 		for {

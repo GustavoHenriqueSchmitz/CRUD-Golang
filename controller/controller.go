@@ -3,7 +3,6 @@ package controller
 import (
 	"CRUD-Golang/models"
 	"CRUD-Golang/services"
-	"fmt"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -12,7 +11,6 @@ func Create(request *fiber.Ctx) error {
 
 	person := models.Person{}
 	err := request.BodyParser(&person)
-	fmt.Println(person)
 
 	if err != nil {
 		return request.Status(500).JSON(models.Response{
