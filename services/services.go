@@ -16,8 +16,16 @@ func CreatePerson(body models.Person) error {
 	return nil
 }
 
-func ReadPerson() {
+func ReadPeople() ([]models.Person, error) {
 
+	people := []models.Person{}
+	results := database.DB.Table("peoples").Select("*").Scan(&people)
+
+	if results.Error != nil {
+		return nil, results.Error
+	}
+
+	return people, nil
 }
 
 func ReadOnePerson() {

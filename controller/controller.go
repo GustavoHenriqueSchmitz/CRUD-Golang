@@ -15,7 +15,7 @@ func Create(request *fiber.Ctx) error {
 	if err != nil {
 		return request.Status(500).JSON(models.Response{
 			Data:    nil,
-			Message: "Erro interno na aplicação.",
+			Message: "Internal error in the aplication.",
 			Error:   true,
 		})
 	}
@@ -25,14 +25,45 @@ func Create(request *fiber.Ctx) error {
 	if err != nil {
 		return request.Status(400).JSON(models.Response{
 			Data:    nil,
-			Message: "Falha ao criar pessoa",
+			Message: "Failed while trying to create person.",
 			Error:   true,
 		})
 	}
 
 	return request.Status(201).JSON(models.Response{
 		Data:    nil,
-		Message: "Pessoa criada com sucesso.",
+		Message: "Person created with success.",
 		Error:   false,
 	})
+}
+
+func Read(request *fiber.Ctx) error {
+
+	people, err := services.ReadPeople()
+
+	if err != nil {
+		return request.Status(400).JSON(models.Response{
+			Data:    nil,
+			Message: "Error while trying to get people.",
+			Error:   true,
+		})
+	}
+
+	return request.Status(200).JSON(models.Response{
+		Data:    people,
+		Message: "Datas got with success.",
+		Error:   false,
+	})
+}
+
+func ReadOne(request *fiber.Ctx) error {
+	return nil
+}
+
+func Delete(request *fiber.Ctx) error {
+	return nil
+}
+
+func Update(request *fiber.Ctx) error {
+	return nil
 }
