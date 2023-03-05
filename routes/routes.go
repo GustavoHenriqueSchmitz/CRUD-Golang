@@ -12,7 +12,7 @@ func Routes(app *fiber.App) {
 
 	router.Post("/create", controller.Create)
 	router.Get("/read", controller.Read)
-	router.Get("/readOne", controller.ReadOne)
-	router.Put("/update", controller.Update)
-	router.Delete("/delete", controller.Delete)
+	router.Get("/readOne/:id", controller.ReadOne)
+	router.Put("/update/:id", controller.Update)
+	router.Delete("/delete/:id", controller.Delete)
 }

@@ -4,6 +4,8 @@ go 1.19
 
 require github.com/lib/pq v1.10.7
 
+require github.com/slayer/autorestart v0.0.0-20170706172547-5ebd91f955ae // indirect
+
 require (
 	github.com/andybalholm/brotli v1.0.4 // indirect
 	github.com/gofiber/fiber/v2 v2.41.0 // indirect
